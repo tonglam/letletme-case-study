@@ -38,14 +38,17 @@ The system combines multiple product and engineering surfaces:
 
 ## Product Screenshots
 
-![LetLetMe realtime analytics platform thumbnail](assets/screenshots/upwork-thumbnail.png)
-*Portfolio thumbnail built from the live product UI, emphasizing realtime data workflows and full-stack SaaS delivery.*
+![LetLetMe desktop workflow](assets/screenshots/desktop-workflow.png)
 
-![LetLetMe desktop workflow view](assets/screenshots/desktop-workflow.png)
-*Desktop realtime workflow view with current state, list/pitch controls, player-level rows, and scoring columns.*
+*Realtime tournament workflow with filters, ownership checks, ranking controls, and synchronized product state.*
 
-![LetLetMe desktop analytics view](assets/screenshots/desktop-analytics.png)
-*Desktop analytics view with event tabs, live match state, scoring events, defensive actions, and bonus indicators.*
+![LetLetMe desktop analytics](assets/screenshots/desktop-analytics.png)
+
+*Live analytics and event-driven product views backed by realtime data processing and cache synchronization.*
+
+![LetLetMe live tournament workflow](assets/screenshots/live-tournament.png)
+
+*Mobile workflow experience for tournament operations and live product interaction.*
 
 ## Architecture
 
