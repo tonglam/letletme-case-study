@@ -39,11 +39,11 @@ The system is not just a content site. It is a multi-platform SaaS-style applica
 ![LetLetMe realtime dashboard](assets/screenshots/dashboard.png)
 *Realtime dashboard for deadline monitoring, price movement, matchup status, and live product state.*
 
-![LetLetMe price analytics](assets/screenshots/price-analytics.png)
-*Analytics surface for reviewing daily market movement and historical player value changes.*
-
 ![LetLetMe live tournament workflow](assets/screenshots/live-tournament.png)
 *Authenticated tournament workflow view with live standings, filters, ownership checks, and comparison controls.*
+
+![LetLetMe live points](assets/screenshots/live-points.png)
+*Live points page with auto-refresh, current entry state, scoring summaries, and gameweek controls.*
 
 ![LetLetMe live matches](assets/screenshots/live-matches.png)
 *Live match breakdown with goals, assists, defensive actions, bonus indicators, and refreshable event state.*
@@ -145,7 +145,7 @@ AI is used for content support, data summaries, workflow preparation, and notifi
 
 | Area | Implementation |
 | --- | --- |
-| Frontend | Next.js, React, server/client rendering, public and authenticated product views |
+| Frontend | Next.js, React, server/client rendering, login, public and authenticated product views |
 | APIs | REST services, GraphQL API, Next.js route handlers |
 | Data | PostgreSQL/MySQL, Redis cache, normalized domain records |
 | Processing | Scheduled jobs, data ingestion, scoring, cache/database synchronization |
