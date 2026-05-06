@@ -30,7 +30,7 @@ The system combines multiple product and engineering surfaces:
 - REST and GraphQL APIs
 - Scheduled data ingestion and processing jobs
 - Redis-backed realtime cache
-- Relational storage with PostgreSQL/MySQL
+- Relational storage with PostgreSQL
 - Telegram bot delivery
 - Mobile companion client
 - Cloudflare, Vercel, VPS services, Docker, and GitHub Actions
@@ -82,7 +82,7 @@ flowchart TB
 
   subgraph storage["Storage and Cache"]
     redis["Redis Live Cache"]
-    db["PostgreSQL / MySQL"]
+    db["PostgreSQL"]
     artifacts["Generated Reports and Content"]
   end
 
@@ -146,7 +146,7 @@ AI is used for content support, data summaries, workflow preparation, and notifi
 | --- | --- |
 | Frontend | Next.js, React, server/client rendering, login, public and authenticated product views |
 | APIs | REST services, GraphQL API, Next.js route handlers |
-| Data | PostgreSQL/MySQL, Redis cache, normalized domain records |
+| Data | PostgreSQL, Redis cache, normalized domain records |
 | Processing | Scheduled jobs, data ingestion, scoring, cache/database synchronization |
 | Workflows | Tournament creation, setup status, queueing, repair, derived data generation |
 | Integrations | Telegram bot, mobile companion client, external live-data APIs |
