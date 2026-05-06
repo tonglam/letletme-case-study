@@ -42,6 +42,9 @@ The system is not just a content site. It is a multi-platform SaaS-style applica
 ![LetLetMe price analytics](assets/screenshots/price-analytics.png)
 *Analytics surface for reviewing daily market movement and historical player value changes.*
 
+![LetLetMe live tournament workflow](assets/screenshots/live-tournament.png)
+*Authenticated tournament workflow view with live standings, filters, ownership checks, and comparison controls.*
+
 ![LetLetMe live matches](assets/screenshots/live-matches.png)
 *Live match breakdown with goals, assists, defensive actions, bonus indicators, and refreshable event state.*
 
