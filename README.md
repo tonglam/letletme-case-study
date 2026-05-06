@@ -1,50 +1,49 @@
 # LetLetMe
 
-> Real-time analytics platform for live sports data, workflow automation, and multi-platform product delivery.
+> Real-time sports analytics platform with web, APIs, data pipelines, Redis caching, bot delivery, and AI-assisted workflows.
 
-LetLetMe is a production full-stack SaaS system built around real-time data ingestion, analytics dashboards, workflow management, and automated content delivery. The platform combines a Next.js web application, REST and GraphQL APIs, scheduled data pipelines, Redis-backed live caching, relational databases, bot integrations, and a mobile companion client.
+[![Next.js](https://img.shields.io/badge/Frontend-Next.js-black)](https://nextjs.org/)
+[![GraphQL](https://img.shields.io/badge/API-GraphQL-E10098)](https://graphql.org/)
+[![REST](https://img.shields.io/badge/API-REST-2563EB)](#architecture)
+[![Redis](https://img.shields.io/badge/Cache-Redis-DC382D)](https://redis.io/)
+[![PostgreSQL](https://img.shields.io/badge/Data-PostgreSQL-336791)](https://www.postgresql.org/)
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-black)](https://vercel.com/)
+[![Cloudflare](https://img.shields.io/badge/Edge-Cloudflare-F38020)](https://www.cloudflare.com/)
 
-This repository is presented as a senior full-stack engineering case study: the focus is system ownership, backend reliability, realtime data synchronization, cloud deployment, and practical AI-assisted workflows.
+Live product: [letletme.top](https://letletme.top)
 
-![Next.js](https://img.shields.io/badge/Frontend-Next.js-black)
-![GraphQL](https://img.shields.io/badge/API-GraphQL-E10098)
-![REST](https://img.shields.io/badge/API-REST-2563EB)
-![Redis](https://img.shields.io/badge/Cache-Redis-DC382D)
-![PostgreSQL](https://img.shields.io/badge/Data-PostgreSQL-336791)
-![Vercel](https://img.shields.io/badge/Deploy-Vercel-black)
-![Cloudflare](https://img.shields.io/badge/Edge-Cloudflare-F38020)
+## Purpose
 
-## Product Snapshot
+This repository is a professional engineering case study for LetLetMe. It is written for clients, founders, and product owners who need to understand the scope and quality of the work without reading the full production codebase.
 
-LetLetMe turns fast-moving external sports data into usable live dashboards, analytics views, tournament workflows, and automated notifications.
+The goal is to show senior full-stack ownership: realtime product surfaces, backend workflow design, data synchronization, cloud deployment, and practical AI-assisted operations.
 
-The product is designed for users who need current information without manually refreshing data sources, reconciling spreadsheet exports, or rebuilding reports by hand.
+## Product Overview
 
-## Screenshot Layout
+LetLetMe turns fast-moving external sports data into live dashboards, analytics views, tournament workflows, automated notifications, and companion client experiences.
 
-Use 3 to 5 screenshots maximum. Each image should be cropped around one clear product capability and paired with a short caption.
+The system is not just a content site. It is a multi-platform SaaS-style application with:
 
-| Order | Screenshot | Purpose | Caption |
-| --- | --- | --- | --- |
-| 1 | Dashboard | Show the product as active operating software | Realtime dashboard for monitoring active data, key metrics, and user-facing product state. |
-| 2 | Analytics / Stats | Show the data-heavy product surface | Analytics view built for fast comparison, data review, and decision support. |
-| 3 | Workflow Management | Show backend workflow ownership through the UI | Workflow management surface for creating, validating, and tracking setup jobs. |
-| 4 | Architecture | Show system depth without adding more UI noise | Production architecture across web, APIs, jobs, cache, database, notifications, and AI-assisted workflows. |
-| 5 | Optional Mobile / Bot | Use only if polished and readable | Companion delivery channel for time-sensitive updates and lightweight product access. |
+- Next.js web frontend
+- REST and GraphQL APIs
+- Scheduled data ingestion and processing jobs
+- Redis-backed realtime cache
+- Relational storage with PostgreSQL/MySQL
+- Telegram bot delivery
+- Mobile companion client
+- Cloudflare, Vercel, VPS services, Docker, and GitHub Actions
+- AI-assisted content and operating workflows
 
-## Why This Project Matters
+## Screenshots
 
-LetLetMe handles the product concerns common in real SaaS systems:
+![LetLetMe realtime dashboard](assets/screenshots/dashboard.png)
+*Realtime dashboard for deadline monitoring, price movement, matchup status, and live product state.*
 
-- Realtime user-facing data with explicit cache-control decisions
-- Backend services that reconcile external data with internal product rules
-- Scheduled ingestion and processing jobs
-- Redis cache design for high-read live views
-- REST and GraphQL API boundaries
-- Relational persistence for durable product state
-- Multi-platform clients across web, bot, and mobile
-- Cloud deployment through Vercel, Cloudflare, VPS services, and CI/CD
-- AI-assisted content and notification workflows
+![LetLetMe price analytics](assets/screenshots/price-analytics.png)
+*Analytics surface for reviewing daily market movement and historical player value changes.*
+
+![LetLetMe live matches](assets/screenshots/live-matches.png)
+*Live match breakdown with goals, assists, defensive actions, bonus indicators, and refreshable event state.*
 
 ## Architecture
 
@@ -54,179 +53,123 @@ flowchart TB
     web["Next.js Web App"]
     mobile["Mobile Companion Client"]
     telegram["Telegram Bot"]
-    content["AI-Assisted Content Workflow"]
+    ai["AI-Assisted Content Workflow"]
   end
 
-  subgraph edge["Edge and Delivery"]
+  subgraph delivery["Edge and Deployment"]
     cloudflare["Cloudflare DNS / Edge"]
     vercel["Vercel Frontend Deployment"]
     vps["VPS Backend Runtime"]
+    actions["GitHub Actions CI/CD"]
   end
 
-  subgraph app["Application Layer"]
-    nextapi["Next.js Route Handlers"]
+  subgraph app["Application Services"]
+    routeHandlers["Next.js Route Handlers"]
     rest["Backend REST APIs"]
     graphql["GraphQL API"]
-    tournament["Workflow / Tournament Services"]
+    workflow["Tournament and Workflow Services"]
     notify["Notification Service"]
   end
 
-  subgraph dataflow["Data and Processing Layer"]
+  subgraph processing["Data Processing"]
     external["External Live Data Sources"]
     ingestion["Scheduled Ingestion Jobs"]
-    processors["Data Normalization and Scoring Jobs"]
+    normalize["Normalization and Scoring"]
     sync["Cache / DB Synchronization"]
   end
 
   subgraph storage["Storage and Cache"]
     redis["Redis Live Cache"]
-    postgres["PostgreSQL / MySQL"]
-    artifacts["Generated Reports and Content Artifacts"]
+    db["PostgreSQL / MySQL"]
+    artifacts["Generated Reports and Content"]
   end
 
   web --> cloudflare --> vercel
   mobile --> cloudflare
   telegram --> notify
-  content --> artifacts
+  ai --> artifacts
 
-  vercel --> nextapi
-  nextapi --> graphql
-  nextapi --> rest
-  rest --> tournament
+  actions --> vercel
+  actions --> vps
+  vercel --> routeHandlers
+  routeHandlers --> graphql
+  routeHandlers --> rest
+
+  rest --> workflow
   graphql --> redis
-  graphql --> postgres
+  graphql --> db
+  workflow --> redis
+  workflow --> db
 
-  external --> ingestion --> processors --> sync
+  external --> ingestion --> normalize --> sync
   sync --> redis
-  sync --> postgres
-
-  tournament --> postgres
-  tournament --> redis
-  processors --> notify
-  notify --> telegram
-  processors --> artifacts
+  sync --> db
+  normalize --> notify
+  normalize --> artifacts
 ```
 
 ## Engineering Highlights
 
 ### Realtime Analytics
 
-The platform exposes live data through frontend views backed by GraphQL and Redis. Realtime pages are designed around freshness, explicit no-cache behavior, and predictable refresh cycles instead of relying on stale browser or CDN state.
+Live product views are backed by GraphQL and Redis so users can inspect current data without waiting for slow page-level recomputation. Freshness-sensitive routes use explicit cache-control decisions and predictable refresh behavior.
 
-### Backend Ownership
+### Backend Engineering
 
-LetLetMe includes backend services for data ingestion, scoring, tournament setup, cache rebuilds, API routing, and operational recovery. The system separates user-facing query APIs from background processing jobs while keeping shared business logic consistent.
+The backend owns data ingestion, scoring, workflow setup, cache rebuilds, API routing, and operational recovery paths. User-facing APIs are separated from background processing jobs while shared business rules remain consistent.
 
 ### Data Synchronization
 
-External data is normalized, stored, cached, and revalidated across Redis and relational databases. The system is designed to detect and repair drift between cache and source-of-truth records.
+External data is normalized, persisted, cached, and revalidated across Redis and relational databases. The system includes practical recovery flows for detecting and repairing drift between cache and source-of-truth records.
 
 ### Workflow Management
 
-Tournament and setup flows are treated as backend workflows, not just frontend forms. Creation, validation, queueing, status tracking, and repair paths are part of the product architecture.
+Tournament setup is treated as a backend workflow, not just a form submission. Creation, validation, queueing, status tracking, setup repair, and derived-data generation are part of the product architecture.
 
 ### Multi-Platform Delivery
 
-The same platform supports a web application, mobile companion client, Telegram notifications, and generated content workflows. This creates a realistic SaaS surface area across product, operations, and user communication.
+The platform supports a web application, mobile companion client, Telegram notifications, and generated content workflows. This gives the system realistic SaaS surface area across product, operations, and communication.
 
 ### Cloud Deployment
 
-The project uses a practical deployment mix: Vercel for frontend delivery, Cloudflare for edge/DNS, VPS-hosted backend services, GitHub Actions for CI/CD, and runtime services for jobs, cache, and API processes.
+LetLetMe uses Vercel and Cloudflare for the frontend and edge layer, VPS-hosted backend services for long-running workloads, Dockerized runtime processes, and GitHub Actions for automated deployment.
 
-### AI-Assisted Workflows
+### AI-Assisted Operations
 
-AI is used as part of the operating workflow for content generation, data summaries, release support, and notification preparation. The emphasis is not on adding a chatbot for novelty, but on improving real product operations.
+AI is used for content support, data summaries, workflow preparation, and notification assistance. The value is operational leverage around a real product system, not a standalone chatbot feature.
 
 ## Technical Scope
 
 | Area | Implementation |
 | --- | --- |
-| Frontend | Next.js, server/client rendering boundaries, public and authenticated product views |
-| APIs | REST endpoints, GraphQL queries and mutations, route handlers |
+| Frontend | Next.js, React, server/client rendering, public and authenticated product views |
+| APIs | REST services, GraphQL API, Next.js route handlers |
 | Data | PostgreSQL/MySQL, Redis cache, normalized domain records |
-| Processing | Scheduled jobs, data ingestion, scoring, synchronization, repair workflows |
-| Integrations | Telegram bot delivery, mobile companion client, external live-data APIs |
-| Deployment | Vercel, Cloudflare, VPS services, Dockerized backend runtime, GitHub Actions |
-| Operations | Cache verification, backend job reruns, production smoke checks, API documentation |
+| Processing | Scheduled jobs, data ingestion, scoring, cache/database synchronization |
+| Workflows | Tournament creation, setup status, queueing, repair, derived data generation |
+| Integrations | Telegram bot, mobile companion client, external live-data APIs |
+| Deployment | Vercel, Cloudflare, VPS services, Docker, GitHub Actions |
+| Operations | Cache verification, job reruns, production smoke checks, API documentation |
 
-## Case Study Focus
+## Related Repositories
 
-This repository demonstrates:
+| Component | Repository |
+| --- | --- |
+| Web Frontend | [tonglam/letletme-web](https://github.com/tonglam/letletme-web) |
+| REST API / Data Jobs | [tonglam/letletme_data](https://github.com/tonglam/letletme_data) |
+| GraphQL API | [tonglam/letletme-graphql](https://github.com/tonglam/letletme-graphql) |
+| Telegram Bot | [tonglam/letletme-telegram-bot](https://github.com/tonglam/letletme-telegram-bot) |
+| Mobile Companion Client | [tonglam/letletme-wechat-miniprogram](https://github.com/tonglam/letletme-wechat-miniprogram) |
 
-- End-to-end product engineering from UI to database
-- Realtime system design under changing external data
-- Practical backend architecture for workflows and jobs
-- Production deployment and operational debugging
-- Multi-platform product delivery
-- AI-assisted development and content operations
+## Case Study Takeaways
 
-## Screenshot Plan
+- Built and operated a production full-stack application end to end
+- Designed realtime reads around Redis, GraphQL, and explicit cache behavior
+- Implemented backend workflows for data-heavy product operations
+- Integrated multiple client surfaces and notification channels
+- Managed cloud deployment across frontend, edge, backend, jobs, and CI/CD
+- Used AI-assisted workflows where they improve real operating speed
 
-Use only 3 to 5 images in the repository README.
+## Positioning
 
-1. **Dashboard**: first image, cropped to the main product workspace. Show the product as useful software, not as a landing page.
-2. **Analytics / Stats**: second image, focused on tables, rankings, filters, or live comparisons.
-3. **Workflow Management**: third image, showing tournament setup, job status, validation, or management UI.
-4. **Architecture Diagram**: fourth image, exported from the Mermaid diagram or shown directly in the README.
-5. **Optional Mobile / Bot Surface**: only include if the screenshot is polished and reinforces multi-platform delivery.
-
-Avoid long full-page screenshots, tiny unreadable mobile captures, or screens dominated by game-specific terminology. Crop each screenshot around one clear product capability.
-
-## Recommended Screenshot Captions
-
-- **Dashboard**: "Realtime dashboard for monitoring active data, key metrics, and product state."
-- **Analytics**: "Analytics view for comparing live and historical performance data."
-- **Workflow Management**: "Workflow management surface for setup, validation, and background job tracking."
-- **Architecture**: "Production architecture across frontend, APIs, jobs, cache, database, and notifications."
-- **Mobile / Bot**: "Companion delivery channel for time-sensitive updates and lightweight product access."
-
-## Suggested Repository Structure
-
-```text
-.
-├── README.md
-├── assets/
-│   └── screenshots/
-│       ├── dashboard.png
-│       ├── analytics.png
-│       ├── workflow-management.png
-│       └── architecture.png
-├── docs/
-│   ├── architecture.md
-│   ├── api-overview.md
-│   └── operations.md
-└── src/
-```
-
-## Optional README Sections
-
-Add these only if the repository contains enough supporting detail:
-
-- **Live Demo**: link to the production web app if it is safe and polished.
-- **API Overview**: summarize key REST and GraphQL surfaces without listing every endpoint in the README.
-- **Operational Notes**: describe cache rebuilds, job reruns, and deployment checks at a high level.
-- **Selected Engineering Decisions**: explain 3 to 5 decisions, such as Redis for live reads or GraphQL for frontend aggregation.
-- **Roadmap**: keep it short and client-friendly. Avoid turning it into a backlog dump.
-
-## GitHub Pin Presentation
-
-Use a pinned repository description like:
-
-> Real-time SaaS analytics platform with Next.js, GraphQL, REST APIs, Redis caching, scheduled data pipelines, bot integrations, and cloud deployment.
-
-Recommended topics:
-
-```text
-nextjs graphql redis postgresql realtime-analytics saas backend-engineering data-pipelines vercel cloudflare
-```
-
-For the repository social preview image, use a clean composition with:
-
-- Product name: **LetLetMe**
-- Subtitle: **Realtime Analytics Platform**
-- Three short labels: **Live Data**, **Workflow Automation**, **Multi-Platform Delivery**
-- Background: cropped dashboard or architecture visual, not a generic gradient
-
-## Positioning Notes
-
-Use "sports analytics" or "live data platform" language in public-facing copy. Keep domain-specific terms inside screenshots or feature examples, but do not make them the headline. The value proposition should read as production engineering: realtime data, reliable workflows, cloud deployment, and end-to-end ownership.
+LetLetMe is best understood as a realtime analytics and workflow platform. The sports domain provides the data source and product context; the engineering value is in the full-stack architecture, data synchronization, cloud deployment, realtime behavior, and operational ownership.
