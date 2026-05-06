@@ -22,7 +22,7 @@ The focus is senior full-stack ownership: realtime product surfaces, backend wor
 
 ## Product Overview
 
-LetLetMe turns fast-moving external data into live dashboards, analytics views, tournament workflows, automated notifications, and companion client experiences.
+LetLetMe turns fast-moving external data sources into live dashboards, analytics views, tournament workflows, automated notifications, and companion client experiences.
 
 The system combines multiple product and engineering surfaces:
 
@@ -39,15 +39,12 @@ The system combines multiple product and engineering surfaces:
 ## Product Screenshots
 
 ![LetLetMe live tournament workflow](assets/screenshots/live-tournament.png)
-
 *Authenticated tournament workflow with live standings, ownership filters, team exposure checks, sorting, and comparison controls.*
 
 ![LetLetMe live points](assets/screenshots/live-points.png)
-
 *Live scoring view with scoring summaries, player-level status, list/pitch controls, and current gameweek state.*
 
 ![LetLetMe live matches](assets/screenshots/live-matches.png)
-
 *Live match breakdown with goals, assists, defensive actions, bonus indicators, and refreshable event state.*
 
 ## Architecture
@@ -177,4 +174,4 @@ AI is used for content support, data summaries, workflow preparation, and notifi
 
 ## Positioning
 
-LetLetMe is best understood as a realtime analytics and workflow platform. The domain provides the data source and product context; the engineering value is in the full-stack architecture, data synchronization, cloud deployment, realtime behavior, and operational ownership.
+LetLetMe is best understood as a realtime analytics and workflow platform. The domain provides the product context; the engineering value is in full-stack architecture, data synchronization, cloud deployment, realtime behavior, and operational ownership.
