@@ -38,6 +38,10 @@ The system combines multiple product and engineering surfaces:
 
 ## Product Screenshots
 
+![LetLetMe project thumbnail](assets/screenshots/project-thumbnail.png)
+
+*Portfolio preview for the realtime analytics platform, built from the live product UI.*
+
 ![LetLetMe desktop workflow](assets/screenshots/desktop-workflow.png)
 
 *Realtime tournament workflow with filters, ownership checks, ranking controls, and synchronized product state.*
