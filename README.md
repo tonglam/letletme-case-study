@@ -30,7 +30,7 @@ The system combines multiple product and engineering surfaces:
 - REST and GraphQL APIs
 - Scheduled data ingestion and processing jobs
 - Redis-backed realtime cache
-- Relational storage with PostgreSQL
+- Relational storage with PostgreSQL/MySQL
 - Telegram bot delivery
 - Mobile companion client
 - Cloudflare, Vercel, VPS services, Docker, and GitHub Actions
@@ -38,17 +38,14 @@ The system combines multiple product and engineering surfaces:
 
 ## Product Screenshots
 
-![LetLetMe live tournament workflow](assets/screenshots/live-tournament.png)
+![LetLetMe realtime analytics platform thumbnail](assets/screenshots/upwork-thumbnail.png)
+*Portfolio thumbnail built from the live product UI, emphasizing realtime data workflows and full-stack SaaS delivery.*
 
-*Authenticated tournament workflow with live standings, ownership filters, team exposure checks, sorting, and comparison controls.*
+![LetLetMe desktop workflow view](assets/screenshots/desktop-workflow.png)
+*Desktop realtime workflow view with current state, list/pitch controls, player-level rows, and scoring columns.*
 
-![LetLetMe live points](assets/screenshots/live-points.png)
-
-*Live scoring view with scoring summaries, player-level status, list/pitch controls, and current gameweek state.*
-
-![LetLetMe live matches](assets/screenshots/live-matches.png)
-
-*Live match breakdown with goals, assists, defensive actions, bonus indicators, and refreshable event state.*
+![LetLetMe desktop analytics view](assets/screenshots/desktop-analytics.png)
+*Desktop analytics view with event tabs, live match state, scoring events, defensive actions, and bonus indicators.*
 
 ## Architecture
 
@@ -85,7 +82,7 @@ flowchart TB
 
   subgraph storage["Storage and Cache"]
     redis["Redis Live Cache"]
-    db["PostgreSQL"]
+    db["PostgreSQL / MySQL"]
     artifacts["Generated Reports and Content"]
   end
 
@@ -149,7 +146,7 @@ AI is used for content support, data summaries, workflow preparation, and notifi
 | --- | --- |
 | Frontend | Next.js, React, server/client rendering, login, public and authenticated product views |
 | APIs | REST services, GraphQL API, Next.js route handlers |
-| Data | PostgreSQL, Redis cache, normalized domain records |
+| Data | PostgreSQL/MySQL, Redis cache, normalized domain records |
 | Processing | Scheduled jobs, data ingestion, scoring, cache/database synchronization |
 | Workflows | Tournament creation, setup status, queueing, repair, derived data generation |
 | Integrations | Telegram bot, mobile companion client, external live-data APIs |
