@@ -34,19 +34,19 @@ The system is not just a content site. It is a multi-platform SaaS-style applica
 - Cloudflare, Vercel, VPS services, Docker, and GitHub Actions
 - AI-assisted content and operating workflows
 
-## Screenshots
-
-![LetLetMe realtime dashboard](assets/screenshots/dashboard.png)
-*Realtime dashboard for deadline monitoring, price movement, matchup status, and live product state.*
+## Product Screenshots
 
 ![LetLetMe live tournament workflow](assets/screenshots/live-tournament.png)
-*Authenticated tournament workflow view with live standings, filters, ownership checks, and comparison controls.*
+*Authenticated tournament workflow with live standings, filters, ownership checks, and comparison controls.*
 
 ![LetLetMe live points](assets/screenshots/live-points.png)
-*Live points page with auto-refresh, current entry state, scoring summaries, and gameweek controls.*
+*Live scoring view with auto-refresh, current entry state, scoring summaries, and gameweek controls.*
 
 ![LetLetMe live matches](assets/screenshots/live-matches.png)
 *Live match breakdown with goals, assists, defensive actions, bonus indicators, and refreshable event state.*
+
+![LetLetMe realtime dashboard](assets/screenshots/dashboard.png)
+*Dashboard for deadline monitoring, price movement, matchup status, and live product state.*
 
 ## Architecture
 
