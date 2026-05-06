@@ -39,16 +39,13 @@ The system combines multiple product and engineering surfaces:
 ## Product Screenshots
 
 ![LetLetMe live tournament workflow](assets/screenshots/live-tournament.png)
-*Authenticated tournament workflow with live standings, filters, ownership checks, and comparison controls.*
+*Authenticated tournament workflow with live standings, ownership filters, team exposure checks, sorting, and comparison controls.*
 
 ![LetLetMe live points](assets/screenshots/live-points.png)
-*Live scoring view with auto-refresh, current entry state, scoring summaries, and gameweek controls.*
+*Live scoring view with scoring summaries, player-level status, list/pitch controls, and current gameweek state.*
 
 ![LetLetMe live matches](assets/screenshots/live-matches.png)
 *Live match breakdown with goals, assists, defensive actions, bonus indicators, and refreshable event state.*
-
-![LetLetMe realtime dashboard](assets/screenshots/dashboard.png)
-*Dashboard for deadline monitoring, price movement, matchup status, and live product state.*
 
 ## Architecture
 
