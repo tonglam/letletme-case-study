@@ -1,6 +1,6 @@
-# LetLetMe
+# LetLetMe — Real-Time Analytics Platform
 
-> Real-time sports analytics platform with web, APIs, data pipelines, Redis caching, bot delivery, and AI-assisted workflows.
+> Real-time analytics platform with web, APIs, data pipelines, Redis caching, bot delivery, and AI-assisted workflows.
 
 [![Next.js](https://img.shields.io/badge/Frontend-Next.js-black)](https://nextjs.org/)
 [![GraphQL](https://img.shields.io/badge/API-GraphQL-E10098)](https://graphql.org/)
@@ -14,15 +14,17 @@ Live product: [letletme.top](https://letletme.top)
 
 ## Purpose
 
-This repository is a professional engineering case study for LetLetMe. It is written for clients, founders, and product owners who need to understand the scope and quality of the work without reading the full production codebase.
+This repository presents the engineering architecture, delivery scope, and operational decisions behind LetLetMe.
 
-The goal is to show senior full-stack ownership: realtime product surfaces, backend workflow design, data synchronization, cloud deployment, and practical AI-assisted operations.
+It is written for clients, founders, and product owners who need to understand the system without reading the full production codebase.
+
+The focus is senior full-stack ownership: realtime product surfaces, backend workflow design, data synchronization, cloud deployment, and practical AI-assisted operations.
 
 ## Product Overview
 
-LetLetMe turns fast-moving external sports data into live dashboards, analytics views, tournament workflows, automated notifications, and companion client experiences.
+LetLetMe turns fast-moving external data into live dashboards, analytics views, tournament workflows, automated notifications, and companion client experiences.
 
-The system is not just a content site. It is a multi-platform SaaS-style application with:
+The system combines multiple product and engineering surfaces:
 
 - Next.js web frontend
 - REST and GraphQL APIs
@@ -127,7 +129,7 @@ External data is normalized, persisted, cached, and revalidated across Redis and
 
 ### Workflow Management
 
-Tournament setup is treated as a backend workflow, not just a form submission. Creation, validation, queueing, status tracking, setup repair, and derived-data generation are part of the product architecture.
+Tournament setup is implemented as a backend workflow. Creation, validation, queueing, status tracking, setup repair, and derived-data generation are part of the product architecture.
 
 ### Multi-Platform Delivery
 
@@ -159,10 +161,10 @@ AI is used for content support, data summaries, workflow preparation, and notifi
 | Component | Repository |
 | --- | --- |
 | Web Frontend | [tonglam/letletme-web](https://github.com/tonglam/letletme-web) |
-| REST API / Data Jobs | [tonglam/letletme_data](https://github.com/tonglam/letletme_data) |
+| REST API | [tonglam/letletme-api](https://github.com/tonglam/letletme-api) |
+| Data Processing Jobs | [tonglam/letletme_data](https://github.com/tonglam/letletme_data) |
 | GraphQL API | [tonglam/letletme-graphql](https://github.com/tonglam/letletme-graphql) |
 | Telegram Bot | [tonglam/letletme-telegram-bot](https://github.com/tonglam/letletme-telegram-bot) |
-| Mobile Companion Client | [tonglam/letletme-wechat-miniprogram](https://github.com/tonglam/letletme-wechat-miniprogram) |
 
 ## Case Study Takeaways
 
@@ -175,4 +177,4 @@ AI is used for content support, data summaries, workflow preparation, and notifi
 
 ## Positioning
 
-LetLetMe is best understood as a realtime analytics and workflow platform. The sports domain provides the data source and product context; the engineering value is in the full-stack architecture, data synchronization, cloud deployment, realtime behavior, and operational ownership.
+LetLetMe is best understood as a realtime analytics and workflow platform. The domain provides the data source and product context; the engineering value is in the full-stack architecture, data synchronization, cloud deployment, realtime behavior, and operational ownership.
