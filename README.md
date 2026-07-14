@@ -179,6 +179,24 @@ AI is used for content support, data summaries, workflow preparation, and notifi
 - Managed cloud deployment across frontend, edge, backend, jobs, and CI/CD
 - Used AI-assisted workflows where they improve real operating speed
 
+## Verification and public boundary
+
+- LetLetMe is an actively maintained product used by 800+ users. The retained historical evidence does not distinguish active, registered, or cumulative users, so this case study uses the neutral term `users`.
+- This repository is an employer-facing architecture and evidence package, not a runnable copy of the production system. Runtime setup and automated tests belong to the linked component repositories.
+- Screenshots and diagrams are selected to explain workflows and system boundaries. They exclude credentials, private customer records, and proprietary production configuration.
+- Public links and referenced assets are checked as part of the case-study release process.
+
+## Trade-offs and limitations
+
+- Redis improves live-read performance but requires deliberate freshness checks, cache rebuilds, and database reconciliation paths.
+- Scheduled ingestion keeps external data current without coupling user requests to upstream availability, at the cost of operational monitoring and rerun workflows.
+- The architecture diagram is intentionally simplified. It explains product boundaries without claiming to reproduce every production service or infrastructure detail.
+- Public repositories expose reviewable engineering evidence while private production configuration and sensitive data remain outside this case study.
+
+## Current status
+
+The product is live at [letletme.top](https://letletme.top). This case study is the primary public entry point for understanding the system; the linked repositories provide deeper implementation evidence where it is safe to publish.
+
 ## Positioning
 
 LetLetMe is best understood as a realtime analytics and workflow platform. The domain provides the product context; the engineering value is in full-stack architecture, data synchronization, cloud deployment, realtime behavior, and operational ownership.
